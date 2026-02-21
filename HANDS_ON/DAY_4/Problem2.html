@@ -1,7 +1,41 @@
 <html>
 <head>
     <title>Student Grade Evaluator</title>       
-    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Styles for Student Grade Evaluator */
+        #grade-evaluator{
+            min-height:100vh;
+            display:flex;
+            flex-direction:column;
+            justify-content:center;
+            align-items:center;
+        }   
+        input[type="number"]{
+            padding:10px;
+            margin:10px;
+            width:200px;
+        }
+        input[type="button"]{
+            padding:10px 20px;
+            background-color:#007BFF;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+        input[type="button"]:hover{
+            background-color:burlywood;
+            transform: scale(1.05);
+            transition: 0.5s;   
+        }   
+        #result{
+            margin-top:20px;
+            font-size:1.5em;
+            font-weight:bold;
+        }
+
+
+    </style>
+    
 </head>
 <body>
     
@@ -9,27 +43,30 @@
       <h2>Student Grade Evaluator</h2>
 
       <label for="marks">Enter Marks (0-100): </label>
-      <input type="number" id="marks" name="marks" min="0" max="100"> <br>
+      <input type="number" id="marks" name="marks" min="0" max="100" required> <br>
       <input type="button" value="Evaluate Grade" onclick="evaluateGrade()">
+      <p id="result"></p>
     </div>
     <script>
       function evaluateGrade() {
-         var marks = document.getElementById("marks").value;
+         var marks = Number(document.getElementById("marks").value);
+       
+         var result = document.getElementById("result");
        if(marks>=75)
          {
-          console.log("Grade A");
+          result.innerText = "Grade A";
          }
          else if(marks>=60)
          {
-          console.log("Grade B");
+          result.innerText = "Grade B";
          }
          else if(marks>=40)
          {
-          console.log("Grade C");
+          result.innerText = "Grade C";
          }
          else
          {
-          console.log("Grade F");
+          result.innerText = "Grade F";
          }
         }
     </script>

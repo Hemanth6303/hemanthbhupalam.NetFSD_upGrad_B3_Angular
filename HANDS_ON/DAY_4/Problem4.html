@@ -1,18 +1,84 @@
 <html>
 <head>
     <title>Traffic Signal Simulator</title>
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        input[type="text"]{
+            padding:10px;
+            margin:10px;
+            width:300px;
+            
+        }
+        input[type="button"]{
+            padding:10px 20px;
+            background-color:#007BFF;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+        input[type="button"]:hover{
+            background-color:#0056b3;  
+            transition: 0.5s;
+            transform: scale(1.05);      
+        }
+        attribute selector              
+        input[type][placeholder]
+        {
+            font-weight: bold;
+            font-style: italic;
+            color: #888;    
+        }
+        p{
+            font-size:1.5em;
+            font-weight:bold;
+        }
+
+    </style>
 </head>
 <body> 
+    
+    <input type="text" id="signal" placeholder="Enter traffic signal color (red, yellow, green)">
+    <input type="button" value="Submit" onclick="evaluateSignal()">
+    <p id="result"></p>
     <script>
-        let signal="green";
+     function evaluateSignal() {
+        let signal=document.getElementById("signal").value.toLowerCase();   
+        let result=document.getElementById("result");   
         switch(signal)
         {
-            case "red": console.log("Stop"); break;
-            case "yellow":console.log("Ready"); break;
-            case "green":console.log("Go"); break;
-            default:console.log("Invalid signal");
+            case "red": result.innerHTML="Stop"; break;
+            case "yellow":result.innerHTML="Ready"; break;
+            case "green":result.innerHTML="Go"; break;
+            default:result.innerHTML="Invalid signal";
           
         }
+        if(signal==="red")
+        {
+            document.body.style.backgroundColor="red";
+        }
+        else if(signal==="yellow")
+        {
+            document.body.style.backgroundColor="yellow";
+        }
+        else if(signal==="green")
+        {
+            document.body.style.backgroundColor="green";
+        }
+        else
+        {
+            document.body.style.backgroundColor="#f0f0f0";
+        }   
+       
+
+     }
     </script>
 </body>
 

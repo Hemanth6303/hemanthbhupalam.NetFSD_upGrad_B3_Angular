@@ -20,7 +20,10 @@ body{
 }
 .navbar a:hover{
     color: white;
+    background-color: black;
     transition: 0.3s;
+    transform: scale(1.1);
+    border-radius: 5px;
 }
 .content{
     text-align: center;

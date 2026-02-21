@@ -1,14 +1,49 @@
 <html>
 <head>
     <title>Simple Discount Calculator</title>
+    <style>
+
+        body{
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #f0f0f0;
+        }
+        input[type="number"]{
+            padding:10px;
+            margin:10px;
+            width:200px;
+        }
+        input[type="button"]{
+            padding:10px 20px;
+            background-color:#28a745;
+            color:white;
+            border:none;
+            cursor:pointer;
+        }
+        input[type="button"]:hover{
+            background-color:greenyellow;   
+            transition: 0.5s;      
+            transform: scale(1.05);     
+
+        }
+    </style>
 </head>
 <body>
     <h2>Simple Discount Calculator</h2>
+        <input type="number" id="amount" placeholder="Enter purchase amount">
+        <input type="button" value="Calculate Discount" onclick="calculateDiscount()"> 
+        <p id="result"></p>
     <script>
-        let amount=Number(prompt("Enter the original price of the item: "));
+    function calculateDiscount() {
         let discount=0;
         let discountAmount=0;
         let finalAmount=0;
+        let amount=(Number(document.getElementById("amount").value));
+        
         if(amount>=5000)
         {
             discount=20;
@@ -20,11 +55,12 @@
         else{
             discount=0;
         }
+        //document.write(typeof(amount));
         discountAmount=(amount*discount)/100;
         finalAmount=amount-discountAmount;
-        document.write("Purchase Amount:"+amount+"<br>");
-        document.write("Discount Percentage:"+discount+"<br>");
-        document.write("Final Payable Amount:"+finalAmount+"<br>");
+        document.getElementById("result").innerHTML = "Purchase Amount: " + amount + "<br>Discount Percentage: " + discount + "%<br>Final Payable Amount: " + finalAmount;
+        
+    }
     </script>
 </body>
 </html>

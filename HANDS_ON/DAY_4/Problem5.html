@@ -1,28 +1,75 @@
 <html>
     <head>
         <title>Number Analysis Tool</title>
+        <style>
+            body{
+                font-family: Arial, sans-serif;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                height: 100vh;
+                background-color: #f0f0f0;
+            }
+            input[type="number"]{
+                padding:10px;
+                margin:10px;
+                width:200px;
+            }
+            input[type="button"]{
+                padding:10px 20px;
+                background-color:#007BFF;
+                color:white;
+                border:none;
+                cursor:pointer;
+            }
+            input[type="button"]:hover{
+                background-color:#0056b3;   
+                transform: scale(1.05);
+                transition: 0.5s;
+            }
+            p{
+                font-size:1.5em;
+                font-weight:bold;
+            }   
+        </style>
     </head>
     <body>
+        <input type="number" id="number" placeholder="Enter a number">
+        <input type="button" value="Analyze" onclick="analyzeNumber()"> 
+        <p id="result"></p> 
+
         <script>
 
-            //store a number
-            let number=7;
+        function analyzeNumber() {
+            
+            let number=Number(document.getElementById("number").value); 
+            let result=document.getElementById("result");   
+
             //check if the number is positive or negative using ternary operator
-            let result=(number>=0)?"Positive Number":"Negative Number";
-            console.log("Number is: "+result);
+            let resultText=(number>=0)?"Positive Number":"Negative Number";
+            console.log("Number is: "+resultText);
+            result.innerHTML="Number is: "+resultText;
            
-             //check if the number is even or odd using ternary operator
-            let result2=(number%2==0)?"Even Number":"Odd Number";       
+            //check if the number is even or odd using ternary operator
+            let result2=(number%2==0)?"Even Number":"Odd Number";             
             console.log("Number is: "+result2);
+            result.innerHTML+=" and it is: "+result2;
+
 
             //Print the numbers from 1 to given number
+            
             console.log("Numbers from 1 to "+number+":");
+            result.innerHTML+="<br>Numbers from 1 to "+number+":<br>";
+            
+            let numbers="";
             for(let i=1;i<=number;i++)
             {
+                numbers+=i+" ";
                 console.log(i);
             }
-
-           
+            result.innerHTML+=numbers;
+        }
             
         </script>
     </body>
