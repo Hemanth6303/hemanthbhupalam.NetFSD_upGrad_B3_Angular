@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Profile Card</title>
+
+    <style>
+        /* Reset */
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f4f7;
+            text-align: center;
+            margin: 0;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        /* Profile Card */
+        .profile-card {
+            background-color: white;
+            width: 50%;
+            max-width: 520px;
+            margin: 0;
+            padding: 30px;            /* Space inside card */
+            border: 2px solid #ddd;   /* Card boundary */
+            border-radius: 10px;      /* Rounded corners */
+        }
+
+        /* Name */
+        .profile-card h1 {
+            font-size: 28px;
+            font-weight: bold;
+            letter-spacing: 1px;
+            margin-bottom: 10px;
+        }
+
+        /* Role */
+        .role {
+            color: #007BFF;
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 10px;
+
+         
+        }
+
+        /* Description */
+        .profile-card p {
+            font-size: 15px;
+            line-height: 1.5;
+            color: #555;
+            margin-bottom: 20px;
+        }
+
+        /* Button */
+        .profile-card button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            cursor: pointer;
+        }
+
+        .profile-card button:hover {
+            background-color: #333;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="profile-card">
+        <h1>Hemanth Bhupalam</h1>
+        <div class="role">Full Stack Developer</div>
+        <p>
+            Passionate developer skilled in Java, HTML, CSS, and MySQL.
+            I enjoy building responsive and user-friendly web applications.
+        </p>
+        <button>Contact Me</button>
+    </div>
+
+</body>
+</html>
