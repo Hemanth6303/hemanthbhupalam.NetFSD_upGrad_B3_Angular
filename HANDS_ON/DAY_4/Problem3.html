@@ -1,0 +1,30 @@
+<html>
+<head>
+    <title>Simple Discount Calculator</title>
+</head>
+<body>
+    <h2>Simple Discount Calculator</h2>
+    <script>
+        let amount=Number(prompt("Enter the original price of the item: "));
+        let discount=0;
+        let discountAmount=0;
+        let finalAmount=0;
+        if(amount>=5000)
+        {
+            discount=20;
+        }
+        else if(amount>=3000)
+        {
+            discount=10;
+        }
+        else{
+            discount=0;
+        }
+        discountAmount=(amount*discount)/100;
+        finalAmount=amount-discountAmount;
+        document.write("Purchase Amount:"+amount+"<br>");
+        document.write("Discount Percentage:"+discount+"<br>");
+        document.write("Final Payable Amount:"+finalAmount+"<br>");
+    </script>
+</body>
+</html>
