@@ -1,5 +1,5 @@
 /* Styles for Student Grade Evaluator */
-
+/*This CSS file styles the Student Grade Evaluator application, ensuring a clean and user-friendly interface.*/
 #grade-evaluator{
     min-height:100vh;
     display:flex;
