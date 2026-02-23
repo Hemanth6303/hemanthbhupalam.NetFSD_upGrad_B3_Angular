@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Live Form Validation</title>
+</head>
+<style>
+body
+{
+    font-family: Arial, sans-serif;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;   
+}
+input {
+    margin-bottom: 5px;
+    padding: 5px;
+    width: 200px;
+}
+label
+{
+    font-weight: bold;
+}   
+
+   
+</style>
+<body>
+
+<h2>Registration Form</h2>
+
+<!-- Name Field -->
+<label>Name:</label><br>
+<input type="text" id="name" onchange="validateName()">
+<p id="nameMsg" style="color:red;"></p>
+
+<!-- Email Field -->
+<label>Email:</label><br>
+<input type="text" id="email" onchange="validateEmail()">
+<p id="emailMsg" style="color:red;"></p>
+
+<!-- Age Field -->
+<label>Age:</label><br>
+<input type="number" id="age" onchange="validateAge()">
+<p id="ageMsg" style="color:red;"></p>
+
+<br>
+<button onclick="submitForm()">Submit</button>
+<p id="finalMsg" style="color:green;"></p>
+
+<script>
+
+function validateName() {
+    let name = document.getElementById("name").value;
+    let msg = document.getElementById("nameMsg");
+
+    if (name.trim() === "") {
+        msg.innerHTML = "Name cannot be empty";
+        return false;
+    } else {
+        msg.innerHTML = "Valid Name";
+        msg.style.color = "green";
+        return true;
+    }
+}
+
+function validateEmail() {
+    let email = document.getElementById("email").value;
+    let msg = document.getElementById("emailMsg");
+
+    if (!email.includes("@")) {
+        msg.innerHTML = "Email must contain @";
+        return false;
+    } else {
+        msg.innerHTML = "Valid Email";
+        msg.style.color = "green";
+        return true;
+    }
+}
+
+function validateAge() {
+    let age = document.getElementById("age").value;
+    let msg = document.getElementById("ageMsg");
+
+    if (age <= 18 || age === "") {
+        msg.innerHTML = "Age must be greater than 18";
+        return false;
+    } else {
+        msg.innerHTML = "Valid Age";
+        msg.style.color = "green";
+        return true;
+    }
+}
+
+function submitForm() {
+
+    let isNameValid = validateName();
+    let isEmailValid = validateEmail();
+    let isAgeValid = validateAge();
+
+    if (isNameValid && isEmailValid && isAgeValid) {
+
+        // Store in sessionStorage
+        sessionStorage.setItem("name", document.getElementById("name").value);
+        sessionStorage.setItem("email", document.getElementById("email").value);
+        sessionStorage.setItem("age", document.getElementById("age").value);
+
+        document.getElementById("finalMsg").innerHTML = 
+            "Registration Successful! Data stored in sessionStorage.";
+    } else {
+        document.getElementById("finalMsg").innerHTML = 
+            "Please fix errors before submitting.";
+        document.getElementById("finalMsg").style.color = "red";
+    }
+}
+
+</script>
+
+</body>
+</html>

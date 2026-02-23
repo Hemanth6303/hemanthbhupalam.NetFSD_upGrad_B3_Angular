@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Personal Notes Saver</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-top: 50px;
+        }
+        textarea {
+            padding: 10px;
+            width: 300px;
+            font-size: 16px;
+        }
+        button {
+            margin: 5px;
+            padding: 10px 20px;
+            font-size: 16px;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>My Notes</h2>
+
+    <!-- Textarea -->
+    <textarea id="noteArea" rows="10" cols="30" 
+        placeholder="Write your note here..."></textarea>
+    <br><br>
+
+    <!-- Buttons using inline onclick -->
+    <button onclick="saveNote()">Save</button>
+    <button onclick="clearNote()">Clear</button>
+
+    <script>
+        // Load note when page loads
+        window.onload = function() {
+            let savedNote = localStorage.getItem("myNote");
+            if (savedNote !== null) {
+                document.getElementById("noteArea").value = savedNote;
+            }
+        };
+
+        // Save note to localStorage
+        function saveNote() {
+            let noteText = document.getElementById("noteArea").value;
+            localStorage.setItem("myNote", noteText);
+            alert("Note Saved Successfully!");
+        }
+
+        // Clear note
+        function clearNote() {
+           // localStorage.removeItem("myNote");
+           localStorage.clear(); // Clear all localStorage data     
+            document.getElementById("noteArea").value = "";     
+            alert("Note Cleared!");
+        }
+
+    </script>
+
+</body>
+</html>
