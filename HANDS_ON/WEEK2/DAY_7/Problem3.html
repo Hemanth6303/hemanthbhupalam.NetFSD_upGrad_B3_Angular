@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Employee Filter</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+        select, button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 10px;
+        }
+        table {
+            width: 80%;
+          
+            margin-top: 20px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }   
+       
+    </style>
+</head>
+<body>
+
+<h2>Employee Filter System</h2>
+
+<!-- Dropdown -->
+<select id="jobSelect">
+    <option value="All">All Employees</option>
+    <option value="Manager">Manager</option>
+    <option value="Salesman">Salesman</option>
+    <option value="Clerk">Clerk</option>
+</select>
+
+<!-- Button -->
+<button id="showBtn">Show Emps</button>
+
+<!-- Table Container -->
+<div id="tableContainer"></div>
+
+<script>
+
+    //  Array of Employee Objects
+    let employees = [
+        { id: 101, name: "Hemanth", job: "Manager", salary: 60000 },
+        { id: 102, name: "Jayanth", job: "Salesman", salary: 30000 },
+        { id: 103, name: "Kishore", job: "Clerk", salary: 20000 },
+        { id: 104, name: "Ramesh", job: "Manager", salary: 65000 },
+        { id: 105, name: "kumar", job: "Salesman", salary: 32000 }
+    ];
+
+    let showBtn = document.getElementById("showBtn");
+    let jobSelect = document.getElementById("jobSelect");
+    let tableContainer = document.getElementById("tableContainer");
+
+    //  Button Click Event
+    showBtn.addEventListener("click", function() {
+
+        let selectedJob = jobSelect.value;
+
+        let filteredEmployees;
+
+        //  Filter Logic
+        if (selectedJob === "All") {
+            filteredEmployees = employees;
+        } else 
+        {
+            filteredEmployees = employees.filter(function(emp) {
+                return emp.job === selectedJob;
+            });
+        }
+
+        //  Display Table
+        displayTable(filteredEmployees);
+
+    });
+
+    //  Function to Create Table
+    function displayTable(empList) {
+
+        if (empList.length === 0) {
+            tableContainer.innerHTML = "No Employees Found";
+            return;
+        }
+
+        let tableHTML = "<table>";
+        tableHTML += "<tr><th>ID</th><th>Name</th><th>Job</th><th>Salary</th></tr>";
+
+        for (var i = 0; i < empList.length; i++) {
+
+            tableHTML += "<tr>";
+            tableHTML += "<td>" + empList[i].id + "</td>";
+            tableHTML += "<td>" + empList[i].name + "</td>";
+            tableHTML += "<td>" + empList[i].job + "</td>";
+            tableHTML += "<td>" + empList[i].salary + "</td>";
+            tableHTML += "</tr>";
+        }
+
+        tableHTML += "</table>";
+
+        tableContainer.innerHTML = tableHTML;
+    }
+
+</script>
+
+</body>
+</html>

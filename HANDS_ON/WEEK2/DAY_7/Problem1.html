@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Marks Analyzer</title>
+    <style>
+     
+            body {
+                font-family: Arial, sans-serif;
+                margin: 20px;
+                height: 100vh;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
+                
+            }
+            button {
+                padding: 10px 20px;
+                font-size: 16px;
+                cursor: pointer;
+            }
+            #output {
+                margin-top: 20px;
+                font-size: 18px;
+            }
+
+    </style>
+</head>
+<body>
+
+    <h2>Student Marks Analyzer</h2>
+    <button id="analyzeBtn">Analyze Marks</button>
+    <div id="output"></div>
+
+<script>
+
+    //  Store student marks
+    const studentMarks = [78, 85, 62, 90, 55];
+
+    //  Calculate Total using reduce()
+    function calculateTotal(marksArray) {
+        sum=0;
+        let totalmarks=marksArray.reduce(
+
+            function(sum, mark) {
+            return sum + mark;
+            }
+
+        );
+
+        return totalmarks;
+    }
+
+    //  Calculate Average
+    function calculateAverage(marksArray) {
+        return calculateTotal(marksArray) / marksArray.length;
+    }
+
+    //  Pass or Fail
+    function getResult(average) {
+        if (average >= 60) {
+            return "Pass";
+        } else {
+            return "Fail";
+        }
+    }
+
+    //  Generate Grades using map()
+    function generateGrades(marksArray) {
+        return marksArray.map(function(mark) {
+
+            if (mark >= 90) {
+                return "A";
+            }
+            else if (mark >= 75) {
+                return "B";
+            }
+            else if (mark >= 60) {
+                return "C";
+            }
+            else {
+                return "D";
+            }
+
+        });
+    }
+
+    //  Button Click Event
+    var analyzeBtn = document.getElementById("analyzeBtn");
+    var outputDiv = document.getElementById("output");
+
+    analyzeBtn.addEventListener("click", function() {
+
+        var totalMarks = calculateTotal(studentMarks);
+        var averageMarks = calculateAverage(studentMarks);
+        var result = getResult(averageMarks);
+        var grades = generateGrades(studentMarks);
+
+        outputDiv.innerHTML =
+            "Marks: " + studentMarks.join(", ") + "<br>" +
+            "Total: " + totalMarks + "<br>" +
+            "Average: " + averageMarks.toFixed(2) + "<br>" +
+            "Result: " + result + "<br>" +
+            "Grades: " + grades.join(", ");
+
+    });
+
+</script>
+
+</body>
+</html>

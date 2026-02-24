@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Product Cart Summary</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f6f9;
+            display: flex;
+            justify-content: center;
+            padding-top: 40px;
+        }
+
+        .card {
+            background: white;
+            padding: 25px;
+            width: 400px;
+            border-radius: 10px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        .line {
+            margin-bottom: 8px;
+        }
+
+        .total {
+            font-weight: bold;
+            margin-top: 15px;
+            border-top: 1px solid #ccc;
+            padding-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="card">
+    <h2>Shopping Cart Invoice</h2>
+    <div id="invoice"></div>
+</div>
+
+<script type="module">
+
+    //  Store products (Array of Objects)
+    const products = [
+        { name: "Laptop", price: 50000, quantity: 1 },   
+        { name: "Mouse", price: 1000, quantity: 2 },
+        { name: "Keyboard", price: 2000, quantity: 1 },
+        { name: "Monitor", price: 15000, quantity: 2 },
+   
+    ];
+
+    //  Calculate total using reduce()
+    let calculateTotal = (cartItems) =>
+        cartItems.reduce(
+            (total, product) => total + (product.price * product.quantity),0
+          );
+
+    //  Generate invoice lines using map()
+    function generateInvoiceHTML(cartItems) {
+
+    var invoiceLines = cartItems.map(function(product) {
+
+        var itemTotal = product.price * product.quantity;
+
+        return "<div class='line'>" +
+            product.name + " - ₹" +
+            product.price + " × " +
+            product.quantity + " = ₹" +
+            itemTotal +
+            "</div>";
+    });
+
+    let totalAmount = calculateTotal(cartItems);
+
+    return invoiceLines.join("") +
+        "<div class='total'>Total Amount: ₹" + totalAmount + "</div>";
+    }
+
+    //  Display in webpage
+    const invoiceDiv = document.getElementById("invoice");
+    invoiceDiv.innerHTML = generateInvoiceHTML(products);
+
+</script>
+
+</body>
+</html>
