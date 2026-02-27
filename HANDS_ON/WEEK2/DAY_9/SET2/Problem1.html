@@ -1,0 +1,66 @@
+<html>
+<head>
+    <title>Student Class</title>    
+</head>
+<body>  
+
+    <h1>Student Details</h1>
+    <div id="studentDetails"></div>
+
+    <script>
+        const divObj=document.getElementById('studentDetails');
+        class Student {
+            name;
+            rollNumber;
+            marks;
+            constructor(name, rollNumber, marks) {
+                this.name = name;
+                this.rollNumber = rollNumber;
+                this.marks = marks;
+            }
+            getGrades(){
+                if(this.marks>=90)
+                {
+                    return 'A';
+                }
+                else if(this.marks>75)
+                {
+                    return 'B';
+                }
+                else if(this.marks>50)
+                {
+                    return 'C';
+                }
+                else
+                {
+                    return 'D';
+                }
+            }
+            getDetails()
+            {
+                //return "Name:"+this.name+",roll number:"+this.rollNumber+",marks:"+this.marks+",grade:"+this.getGrades(); 
+                return `Name: ${this.name}, Roll Number: ${this.rollNumber}, Marks: ${this.marks}, Grade: ${this.getGrades()}`; 
+            }
+        }
+
+        const student1 = new Student("Alice", 20, 85);
+        const student2 = new Student("Bob", 22, 90);
+        
+        const newElement1=document.createElement('p');
+        newElement1.innerText=student1.getDetails();
+        divObj.appendChild(newElement1);
+
+        
+        const newElement2=document.createElement('p');
+        newElement2.innerText=student2.getDetails();
+        divObj.appendChild(newElement2);
+
+
+
+        console.log(student1.getDetails());
+        console.log(student2.getDetails());
+
+
+    </script>   
+
+</html>

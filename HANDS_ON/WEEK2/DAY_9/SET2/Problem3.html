@@ -1,0 +1,60 @@
+<html>
+<head>
+    <title>Payment System</title>
+</head>
+<body>
+</body>
+   <p id="output"></p>
+   
+<script>
+    //Polymorphism example with Payment system   
+    //loose coupling in polymorphism
+    //parent class reference can point to child class object   
+    class Payment{
+     
+
+        pay(amount)
+        {
+            return `processing payment of ${amount}`; 
+        }   
+    }
+    class CreditCard extends Payment{
+        
+        pay(amount)
+        {
+            return `Processing credit card payment of ${amount}`; 
+        }
+    }
+    class UPI extends Payment{
+        
+        pay(amount)
+        {
+            alert(amount);
+            return `Processing UPI payment of ${amount}`; 
+        }
+    }   
+    class Cash extends Payment{
+
+        pay(amount)
+        {
+            return `Processing cash payment of ${amount}`; 
+        }
+    } 
+    function permitPayment(reference, amount)
+    {
+        
+     
+        return (reference.pay(amount));
+    }  
+
+    const cc=new CreditCard();
+    const upi=new UPI();  
+    const cash=new Cash();        
+
+    document.getElementById("output").innerHTML += permitPayment(cc, 1000) + "<br>";
+    document.getElementById("output").innerHTML += permitPayment(upi, 500) + "<br>";
+    document.getElementById("output").innerHTML += permitPayment(cash, 200) + "<br>";
+
+     
+</script>
+</html>

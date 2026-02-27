@@ -1,0 +1,43 @@
+<html>
+<head>
+    <title>Vehicle Management System</title>    
+</head>
+<body>
+    <h1>Vehicle Details</h1>
+    <p id="vehicle Details"></p>
+
+    <script>
+        class Vehicle{
+            brand;
+            speed;
+            constructor(brand, speed) {
+                this.brand = brand;
+                this.speed = speed;
+            }
+            displayInfo()
+            {
+                return `Brand: ${this.brand}, Speed: ${this.speed}`; 
+            }
+        }
+        class Car extends Vehicle{
+            fuelType;
+            constructor(brand, speed,fuelType) {
+                super(brand, speed);
+                this.fuelType = fuelType;
+            }
+            showCarDetails()
+            {
+                return `Fuel Type: ${this.fuelType}`;   
+            }
+
+        }
+   
+        const car1=new Car("Toyota", 120, "Petrol");
+        document.getElementById('vehicle Details').innerText=car1.displayInfo() + ", " + car1.showCarDetails();
+
+        console.log(car1.displayInfo());
+        console.log(car1.showCarDetails());
+
+    </script>
+</body>     
+</html>
