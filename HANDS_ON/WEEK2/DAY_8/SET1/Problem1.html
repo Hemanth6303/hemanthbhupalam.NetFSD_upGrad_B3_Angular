@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Professional Weather App</title>
+    <style>
+        
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h2 {
+            color: #333;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            width: 300px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #0056b3;
+        }
+
+        .card {
+            background-color: white;
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 20px;
+        }   
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+
+    <h2>🌦️ Weather Data Fetcher</h2>
+
+    <input type="text" id="cityInput" placeholder="Enter City Name">
+    <button id="buttonWeather">Get Weather</button>
+
+    <div id="result"></div>
+
+    <script>
+
+        const btn = document.getElementById("buttonWeather");
+        const resultDiv = document.getElementById("result");
+        const cityInput = document.getElementById("cityInput");
+
+        const fetchWeather = async () => {
+
+            const city = cityInput.value.trim();
+
+            if (city === "") {
+                resultDiv.innerHTML = `<p class="error">Please enter a city name</p>`;
+                return;
+            }
+
+            try {
+                resultDiv.innerHTML = "Loading weather data";
+
+                // 1️ Get Latitude & Longitude from city name
+                const geoResponse = await fetch(`https://geocoding-api.open-meteo.com/v1/search?name=${city}&count=1`);
+                //console.log(geoResponse);
+                if (!geoResponse.ok) {
+                    throw new Error("Failed to fetch location data");
+                }
+
+                const geoData = await geoResponse.json();
+               
+                if (!geoData.results) {
+                    throw new Error("City not found");
+                }
+
+                const { latitude, longitude, name, country } = geoData.results[0];
+
+                // 2 Get Weather using latitude & longitude
+                const weatherUrl =
+                    `https://api.open-meteo.com/v1/forecast?latitude=${latitude}&longitude=${longitude}&current_weather=true`;
+
+                const weatherResponse = await fetch(weatherUrl);
+
+                if (!weatherResponse.ok) {
+                    throw new Error("Failed to fetch weather data");
+                }
+
+                const weatherData = await weatherResponse.json();
+                const weather = weatherData.current_weather;
+
+                // 3️⃣ Display Weather
+                resultDiv.innerHTML = `
+                    <div class="card">
+                        <h3>${name}, ${country}</h3>
+                        <p><strong>Temperature:</strong> ${weather.temperature} °C</p>
+                        <p><strong>Wind Speed:</strong> ${weather.windspeed} km/h</p>
+                        <p><strong>Wind Direction:</strong> ${weather.winddirection}°</p>
+                        <p><strong>Time:</strong> ${weather.time}</p>
+                    </div>
+                `;
+
+            } catch (error) {
+                resultDiv.innerHTML =
+                    `<p class="error">Error: ${error.message}</p>`;
+            }
+        };
+
+        btn.addEventListener("click", fetchWeather);
+
+    </script>
+
+</body>
+</html>
