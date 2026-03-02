@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Advanced Cart System</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+
+    <style>
+        body{
+            font-family: Arial, sans-serif;
+            background:#f4f6f9;
+            margin:0;
+            padding:20px;
+        }
+
+        .header{
+            background:#4e73df;
+            color:white;
+            padding:15px;
+            text-align:center;
+            font-size:20px;
+            border-radius:8px;
+            margin-bottom:20px;
+        }
+
+        .products{
+            display:grid;
+            grid-template-columns:repeat(2,1fr);
+            gap:20px;
+        }
+
+        .product{
+            background:white;
+            padding:20px;
+            border-radius:8px;
+            text-align:center;
+        }
+
+        button{
+            padding:8px 15px;
+            border:none;
+            border-radius:5px;
+            cursor:pointer;
+            color:white;
+        }
+
+        .add{
+            background:#1cc88a;
+        }
+
+        .remove{
+            background:#e74a3b;
+        }
+
+        .message{
+            margin-top:8px;
+            font-size:14px;
+        }
+    </style>
+</head>
+
+<body>
+
+<div class="header">
+    Cart Items: <span id="cartCount">0</span>
+</div>
+
+<div class="products">
+
+    <div class="product">
+        <h3>Laptop</h3>
+        <button class="cartBtn add">Add to Cart</button>
+        <div class="message"></div>
+    </div>
+
+    <div class="product">
+        <h3>Mobile</h3>
+        <button class="cartBtn add">Add to Cart</button>
+        <div class="message"></div>
+    </div>
+
+    <div class="product">
+        <h3>Headphones</h3>
+        <button class="cartBtn add">Add to Cart</button>
+        <div class="message"></div>
+    </div>
+
+    <div class="product">
+        <h3>Smart Watch</h3>
+        <button class="cartBtn add">Add to Cart</button>
+        <div class="message"></div>
+    </div>
+
+</div>
+
+<script>
+$(document).ready(function(){
+
+    // Load saved cart count from localStorage
+    let count = localStorage.getItem("cartCount") ? parseInt(localStorage.getItem("cartCount")) : 0;
+    
+    $("#cartCount").text(count);
+
+    // Event Delegation
+    $(".products").on("click", ".cartBtn", function(){
+
+        let button = $(this);
+        let message = button.siblings(".message");
+
+        // If product already added → Remove
+        if(button.hasClass("remove")){
+
+            count--;
+            button.removeClass("remove")
+                  .addClass("add")
+                  .text("Add to Cart");
+
+            message.text("Item removed").css("color","red");
+        }
+        else{
+            count++;
+            button.removeClass("add")
+                  .addClass("remove")
+                  .text("Remove");
+
+            message.text("Item added").css("color","green");
+        }
+
+        // Update counter
+        $("#cartCount").text(count);
+
+        // Save to localStorage
+        localStorage.setItem("cartCount", count);
+
+    });
+
+});
+</script>
+
+</body>
+</html>

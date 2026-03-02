@@ -1,0 +1,111 @@
+<html>
+    <head>
+        <title>Dynamic FAQ Toggle Section</title>
+        <style>
+        body{
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #667eea, #764ba2);
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+        }
+
+        .container{
+            width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2{
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        .question{
+            background-color: #f1f1f1;
+            padding: 15px;
+            margin-top: 10px;
+            cursor: pointer;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            position: relative;
+        }
+
+        .question:hover{
+            background-color: #667eea;
+            color: white;
+        }
+
+        .answer{
+            display: none;
+            padding: 15px;
+            background-color: #fafafa;
+            border-left: 4px solid #667eea;
+            margin-top: 5px;
+            border-radius: 5px;
+            color: #555;
+        }
+        .question.active{
+              background-color: #764ba2;
+              color: white;
+         }
+        </style>
+    </head>
+    <body>
+
+       <div class="container">
+          <div class="question">what is your name?</div>
+          <div class="answer">my name is hemanth</div>
+ 
+          <div class="question">what are your hobbies?</div>
+          <div class="answer">my hobbies are watching youtube videos related to business case study</div>
+       
+
+          <div class="question">which course did you enroll?</div>
+          <div class="answer">I enrolled for dotnet full stack course</div>
+
+          <div class="question">which course did you enroll?</div>
+          <div class="answer">I enrolled for dotnet full stack course</div>
+
+          <div class="question">which course did you enroll?</div>
+          <div class="answer">I enrolled for dotnet full stack course</div>
+       </div>
+        
+        <script  src="https://code.jquery.com/jquery-4.0.0.js"></script> 
+        <script>
+            $(document).ready(function(){
+
+               $(".question").click(function(){
+
+                  // If clicked question already open → close it
+                   if($(this).hasClass("active"))
+                   {
+
+                    $(this).removeClass("active");
+                    $(this).next(".answer").slideUp();
+                    
+                   }
+                    else
+                    {
+
+                       // Close all answers
+                        $(".answer").slideUp();
+                        $(".question").removeClass("active");
+
+                        // Open clicked answer
+                         $(this).next(".answer").slideDown();
+                         $(this).addClass("active");
+                    }
+
+    });
+
+});
+</script>
+    </body>
+</html>

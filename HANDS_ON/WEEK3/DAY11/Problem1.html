@@ -1,0 +1,138 @@
+<html>
+    <head>
+        <title>Student Feedback Form</title>
+        <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+
+        .student.container {
+            background: #ffffff;
+            padding: 30px;
+            width: 350px;
+            border-radius: 10px;
+        }
+
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+            color: #333;
+        }
+
+        label {
+            font-weight: bold;
+            display: block;
+            margin-top: 10px;
+            margin-bottom: 5px;
+        }
+
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            outline: none;
+            transition: 0.3s;
+        }
+
+        input:focus, select:focus, textarea:focus {
+            border-color: #4e73df;
+           
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 15px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4e73df;
+            color: white;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background-color: #2e59d9;
+        }
+
+        #result {
+            margin-top: 15px;
+            text-align: center;
+            font-weight: bold;
+        }
+    </style>
+    </head>
+    <body>
+        <div class="student container">
+            <h1>Student Feedback Form</h1>
+            <form id="feedback form">
+                <label>Name:</label>
+                <input type="text" id="name"> <br><br>
+
+                <label>Email:</label>
+                <input type="email" id="email"><br><br>
+
+                <label>Course Rating:</label>
+                <select id="course rating">
+                    <option value="">Select Rating</option>
+                    <option>Excellent</option>
+                    <option>Good</option>
+                    <option>Average</option>
+                    <option>Poor</option>
+                </select> <br><br>
+
+                <label>Comments:</label>
+                <textarea id="comments" rows="3" columns="30"></textarea>  <br><br>
+                
+                <button type="button" id="submitbutton">Submit Feedback</button>
+
+            </form>
+
+            <div id="result"></div>
+        </div>
+
+
+           <script  src="https://code.jquery.com/jquery-4.0.0.js"></script> 
+           <script>
+               $(document).ready(function(){
+                     
+                    $('#submitbutton').click(function(){
+
+                        var name=$('#name').val().trim();
+                        var email=$('#email').val().trim();
+                         //clear the previous in result div 
+                        $('result').html("");
+                        if(name == "" || email == "")
+                        {
+                            $('#result').html("<p style='color:red'>Please fill in name and email fields.</p>");
+                        }
+                        else if(name.includes("@"))
+                        {
+                             $('#result').html("<p style='color:red'>Please fill correct email address.</p>")
+                        }
+                        else{
+                            $('#result').html("<p style='color:green'>Thank you for your feedback!</p>");
+                            
+                             $('#name').val("");
+                             $('#email').val("");
+                             $('#course rating').val("");
+                             $('#comments').val("");
+                             
+                           
+
+                        }
+
+
+                    })
+
+               })
+           </script>	
+    </body>
+</html>
