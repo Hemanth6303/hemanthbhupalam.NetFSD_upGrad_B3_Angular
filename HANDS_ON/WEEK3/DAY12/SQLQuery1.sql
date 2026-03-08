@@ -17,6 +17,8 @@ CREATE TABLE UserInfo (
         CHECK (LEN(Password) BETWEEN 6 AND 20)
 );
 
+
+
 INSERT INTO UserInfo VALUES
 ('admin@gmail.com','AdminUser','Admin','admin123'),
 ('hemanth@gmail.com','Hemanth','Participant','pass123');
