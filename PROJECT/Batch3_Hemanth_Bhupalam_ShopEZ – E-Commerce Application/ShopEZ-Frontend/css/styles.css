@@ -1,0 +1,161 @@
+/* ================= GLOBAL ================= */
+body {
+    background: linear-gradient(135deg, #f8f9fa, #eef1f5);
+    font-family: 'Segoe UI', Arial, sans-serif;
+    overflow-x: hidden;
+}
+
+* {
+    transition: all 0.3s ease;
+}
+
+/* ================= CONTAINER ================= */
+.container {
+    max-width: 1200px;
+}
+
+/* ================= CARD ================= */
+.card {
+    border-radius: 18px;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+    border: none;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+}
+
+/* ================= PRODUCT IMAGE ================= */
+.product-img {
+    height: 200px;
+    object-fit: contain;
+}
+
+/* ================= BUTTONS ================= */
+.btn {
+    border-radius: 25px;
+}
+
+.btn:hover {
+    transform: scale(1.05);
+}
+
+/* ================= HERO SECTION ================= */
+.hero-section {
+    min-height: 100vh;
+    margin-top: -70px;
+    padding-top: 100px;
+
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+                url('../images/headset.png') center/cover no-repeat;
+
+    display: flex;
+    align-items: center;
+    color: white;
+}
+
+/* ✅ NEW: RESPONSIVE LEFT SPACING (REPLACES margin-left) */
+.hero-section .container {
+    padding-left: 120px;
+}
+
+/* HERO CONTENT ANIMATION */
+.hero-content {
+    animation: slideLeft 1s ease;
+}
+
+@keyframes slideLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-60px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+/* HERO TEXT */
+.hero-heading {
+    font-size: 52px;
+}
+
+.hero-text {
+    color: #ddd;
+}
+
+/* BUTTON EFFECTS */
+.hero-btn-primary:hover {
+    box-shadow: 0 0 20px rgba(255, 193, 7, 0.8);
+}
+
+.hero-btn-secondary:hover {
+    background: white;
+    color: black;
+}
+
+/* ================= NAVBAR ================= */
+.nav-custom::after {
+    content: "";
+    width: 0;
+    height: 2px;
+    background: #ffc107;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    transition: 0.3s;
+}
+
+.nav-custom:hover::after {
+    width: 100%;
+}
+
+
+.success-card {
+            max-width: 500px;
+            margin: auto;
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+/* ================= RESPONSIVE ================= */
+@media (max-width: 992px) {
+
+    .hero-section {
+        text-align: center;
+        padding-top: 120px;
+        background-attachment: scroll;
+    }
+
+    /* ✅ Adjust spacing for tablet */
+    .hero-section .container {
+        padding-left: 30px;
+    }
+
+    .hero-heading {
+        font-size: 32px;
+    }
+}
+
+@media (max-width: 576px) {
+
+    /* ✅ Adjust spacing for mobile */
+    .hero-section .container {
+        padding-left: 15px;
+    }
+
+    .hero-heading {
+        font-size: 26px;
+    }
+}

@@ -1,0 +1,162 @@
+[
+    {
+        "id": 1,
+        "name": "Laptop Pro",
+        "category": "Electronics",
+        "description": "High performance laptop for work and gaming",
+        "price": 65000,
+        "image": "images/laptop.png"
+    },
+    {
+        "id": 2,
+        "name": "Smartphone X",
+        "category": "Electronics",
+        "description": "Latest smartphone with advanced features",
+        "price": 25000,
+        "image": "images/phone.png"
+    },
+    {
+        "id": 3,
+        "name": "Wireless Earbuds",
+        "category": "Accessories",
+        "description": "Noise cancelling earbuds",
+        "price": 2999,
+        "image": "images/earbud.png"
+    },
+    {
+        "id": 4,
+        "name": "Smart Watch",
+        "category": "Wearables",
+        "description": "Fitness tracking smartwatch",
+        "price": 4999,
+        "image": "images/watch.png"
+    },
+    {
+        "id": 5,
+        "name": "Gaming Mouse",
+        "category": "Accessories",
+        "description": "High precision gaming mouse",
+        "price": 1500,
+        "image": "images/mouse.png"
+    },
+    {
+        "id": 6,
+        "name": "Bluetooth Speaker",
+        "category": "Gadgets",
+        "description": "Portable speaker with deep bass",
+        "price": 3500,
+        "image": "images/speaker.png"
+    },
+    {
+        "id": 7,
+        "name": "DSLR Camera",
+        "category": "Electronics",
+        "description": "Professional DSLR camera",
+        "price": 45000,
+        "image": "images/camera.png"
+    },
+    {
+        "id": 8,
+        "name": "Tablet",
+        "category": "Electronics",
+        "description": "Lightweight tablet for entertainment",
+        "price": 20000,
+        "image": "images/tablet.png"
+    },
+    {
+        "id": 9,
+        "name": "Power Bank",
+        "category": "Accessories",
+        "description": "10000mAh fast charging power bank",
+        "price": 1200,
+        "image": "images/powerbank.png"
+    },
+    {
+        "id": 10,
+        "name": "Fitness Band",
+        "category": "Wearables",
+        "description": "Track your daily activities",
+        "price": 1999,
+        "image": "images/fitnessband.png"
+    },
+    {
+        "id": 11,
+        "name": "Gaming Keyboard",
+        "category": "Accessories",
+        "description": "RGB mechanical keyboard",
+        "price": 2500,
+        "image": "images/keyboard.png"
+    },
+    {
+        "id": 12,
+        "name": "VR Headset",
+        "category": "Gadgets",
+        "description": "Immersive virtual reality experience",
+        "price": 8000,
+        "image": "images/headset.png"
+    },
+    {
+        "id": 13,
+        "name": "Smart TV",
+        "category": "Electronics",
+        "description": "4K Ultra HD Smart TV",
+        "price": 40000,
+        "image": "images/tv.png"
+    },
+    {
+        "id": 14,
+        "name": "USB Hub",
+        "category": "Accessories",
+        "description": "Multi-port USB hub",
+        "price": 800,
+        "image": "images/usb.png"
+    },
+    {
+        "id": 15,
+        "name": "Wireless Charger",
+        "category": "Gadgets",
+        "description": "Fast wireless charging pad",
+        "price": 1800,
+        "image": "images/charger.png"
+    },
+    {
+        "id": 16,
+        "name": "Headphones",
+        "category": "Accessories",
+        "description": "Over-ear noise cancelling headphones",
+        "price": 3500,
+        "image": "images/headphone.png"
+    },
+    {
+        "id": 17,
+        "name": "Smart Glasses",
+        "category": "Wearables",
+        "description": "Innovative smart glasses",
+        "price": 12000,
+        "image": "images/glass.png"
+    },
+    {
+        "id": 18,
+        "name": "Action Camera",
+        "category": "Gadgets",
+        "description": "Waterproof action camera",
+        "price": 7000,
+        "image": "images/actioncamera.png"
+    },
+    {
+        "id": 19,
+        "name": "Router",
+        "category": "Electronics",
+        "description": "High-speed WiFi router",
+        "price": 3000,
+        "image": "images/router.png"
+    },
+    {
+        "id": 20,
+        "name": "Portable Monitor",
+        "category": "Electronics",
+        "description": "Slim portable monitor",
+        "price": 15000,
+        "image": "images/monitor.png"
+    }
+]

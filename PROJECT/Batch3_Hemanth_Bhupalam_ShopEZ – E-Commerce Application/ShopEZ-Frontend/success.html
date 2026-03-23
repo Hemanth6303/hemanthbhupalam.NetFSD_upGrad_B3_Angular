@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Order Success</title>
+
+    <!-- RESPONSIVENESS -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">ShopEZ</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold nav-custom" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold nav-custom" href="products.html">Products</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold nav-custom" href="checkout.html">Checkout</a>
+                    </li>
+                </ul>
+
+                <a href="cart.html" class="btn btn-warning fw-bold">
+                    Cart (<span id="cartCount">0</span>)
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="flex-grow-1">
+
+        <div class="container mt-5">
+
+            <div class="card shadow text-center p-4 success-card">
+
+                <!-- ✅ Success Icon -->
+                <div class="mb-3">
+                    <span style="font-size:60px;">✅</span>
+                </div>
+
+                <!-- ✅ Title -->
+                <h1 class="text-success display-5">
+                    🎉 Order Placed Successfully!
+                </h1>
+
+                <!-- ✅ Message -->
+                <p class="mt-3">
+                    Thank you for shopping with <strong>ShopEZ</strong> 🛒
+                </p>
+
+                <p class="text-muted">
+                    Your order has been confirmed and will be delivered soon.
+                </p>
+
+                <!-- ✅ Buttons -->
+                <div class="d-flex justify-content-center gap-3 mt-3 flex-wrap">
+
+                    <a href="products.html" class="btn btn-outline-primary">
+                        Shop More
+                    </a>
+
+                    <a href="index.html" class="btn btn-primary">
+                        Go to Home
+                    </a>
+
+                </div>
+
+                <!-- ✅ Auto Redirect Info -->
+                <p class="text-muted mt-3">
+                    Redirecting to home page in 10 seconds...
+                </p>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-dark text-white p-4">
+        <div class="container text-center">
+
+            <h4>About ShopEZ</h4>
+
+            <p>
+                ShopEZ provides a seamless shopping experience with quality products and fast delivery.
+            </p>
+
+            <p>© 2026 ShopEZ | All Rights Reserved</p>
+
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/common.js"></script>
+
+    <!-- ✅ Auto Redirect Script -->
+    <script>
+        setTimeout(() => {
+            window.location.href = "index.html";
+        }, 10000);
+    </script>
+
+</body>
+
+</html>

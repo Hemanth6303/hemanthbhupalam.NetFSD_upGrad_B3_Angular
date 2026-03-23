@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>ShopEZ</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">ShopEZ</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold nav-custom" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold nav-custom" href="products.html">Products</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold nav-custom" href="checkout.html">Checkout</a>
+                    </li>
+                </ul>
+
+                <a href="cart.html" class="btn btn-warning fw-bold">
+                    Cart (<span id="cartCount">0</span>)
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="flex-grow-1">
+
+        <!-- ALERT -->
+        <div class="container mt-3">
+            <div id="alertBox"></div>
+        </div>
+
+        <!-- HERO SECTION -->
+        <section class="hero-section">
+
+            <div class="hero-overlay">
+
+                <div class="container">
+
+                    <div class="row align-items-center">
+
+                        <div class="col-lg-6 col-12 text-center text-lg-start hero-content ps-lg-4">
+
+                            <span class="badge-custom">✨ NEW ARRIVALS 2026</span>
+
+                            <h1 class="hero-heading">
+                                Shop <span class="highlight">Smart,</span><br>
+                                Live Better
+                            </h1>
+
+                            <p class="hero-text">
+                                Discover premium electronics and accessories curated for
+                                the modern lifestyle. Unbeatable prices, lightning-fast delivery.
+                            </p>
+
+                            <div class="mt-4 d-flex flex-wrap gap-3 justify-content-center justify-content-lg-start">
+
+                                <a href="products.html" class="btn btn-warning hero-btn-primary">
+                                    Shop Now →
+                                </a>
+
+                                <a href="products.html" class="btn btn-outline-light hero-btn-secondary">
+                                    Explore Products →
+                                </a>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+        <!-- PRODUCTS -->
+        <div class="container mt-5">
+
+            <h3 class="text-center mb-4">Products For You</h3>
+
+            <div class="row g-4" id="productList">
+
+                <div class="text-center w-100">
+                   <div class="spinner-border text-primary"></div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- WHY SHOPEZ -->
+        <div class="container mt-5 mb-5">
+
+            <h3 class="text-center mb-4">Why ShopEZ?</h3>
+
+            <div class="row text-center g-3">
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card p-4 why-card shadow-sm">
+                        <h5>🚀 Fast Delivery</h5>
+                        <p>Get your products delivered quickly</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card p-4 why-card shadow-sm">
+                        <h5>💰 Best Prices</h5>
+                        <p>Affordable prices on all products</p>
+                    </div>
+                </div>
+
+                <div class="col-lg-4 col-md-6 col-12">
+                    <div class="card p-4 why-card shadow-sm">
+                        <h5>🔒 Secure Shopping</h5>
+                        <p>Your data is safe with us</p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto mt-4 bg-dark text-white p-4">
+        <div class="container text-center">
+
+            <h4>About ShopEZ</h4>
+
+            <p>
+                ShopEZ is a modern e-commerce platform designed to provide a seamless shopping experience.
+            </p>
+
+            <p>© 2026 ShopEZ | All Rights Reserved</p>
+
+        </div>
+    </footer>
+
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/products.js"></script>
+
+</body>
+</html>

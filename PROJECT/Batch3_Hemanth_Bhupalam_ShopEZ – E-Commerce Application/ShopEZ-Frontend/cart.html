@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Cart</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="stylesheet" href="lib/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+</head>
+
+<body class="d-flex flex-column min-vh-100">
+
+    <!-- NAVBAR -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+        <div class="container">
+
+            <a class="navbar-brand fw-bold" href="index.html">ShopEZ</a>
+
+            <button class="navbar-toggler" data-bs-toggle="collapse" data-bs-target="#menu">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="menu">
+
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active fw-bold nav-custom" href="index.html">Home</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold nav-custom" href="products.html">Products</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link fw-bold nav-custom" href="checkout.html">Checkout</a>
+                    </li>
+                </ul>
+
+                <a href="cart.html" class="btn btn-warning fw-bold">
+                    Cart (<span id="cartCount">0</span>)
+                </a>
+
+            </div>
+
+        </div>
+    </nav>
+
+    <!-- MAIN -->
+    <main class="flex-grow-1">
+
+        <div class="container mt-5 mb-5 fade-in">
+
+            <h2 class="mb-4 text-center">Your Cart</h2>
+
+            <!-- TABLE -->
+            <div class="table-responsive">
+
+                <table class="table table-bordered table-hover align-middle text-center" aria-label="Shopping Cart Table">
+
+                    <thead class="table-dark text-center">
+                        <tr>
+                            <th>Product</th>
+                            <th>Quantity</th>
+                            <th>Price</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+
+                    <!-- Default Loading UI -->
+                    <tbody id="cartItems">
+                        <tr>
+                            <td colspan="4" class="text-center text-muted">
+                                Loading cart...
+                            </td>
+                        </tr>
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            <!-- TOTAL -->
+            <div class="d-flex justify-content-between align-items-center mt-3 flex-wrap">
+
+                <h4 class="mb-2">Total: ₹<span id="total"></span></h4>
+
+                <!-- ✅ BUTTON (NOT anchor) -->
+                <button id="checkoutBtn" class="btn btn-primary">
+                    Proceed to Checkout
+                </button>
+
+            </div>
+
+        </div>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="mt-auto bg-dark text-white p-4">
+        <div class="container text-center">
+
+            <h4>About ShopEZ</h4>
+            <p>ShopEZ provides a seamless shopping experience with quality products and fast delivery.</p>
+            <p>© 2026 ShopEZ | All Rights Reserved</p>
+
+        </div>
+    </footer>
+
+    <!-- JS -->
+    <script src="lib/jquery/jquery.min.js"></script>
+    <script src="lib/bootstrap/bootstrap.bundle.min.js"></script>
+    <script src="js/common.js"></script>
+    <script src="js/cart.js"></script>
+
+    <!-- ✅ Navigation control -->
+    <script>
+        $("#checkoutBtn").click(function () {
+            if (!$(this).prop("disabled")) {
+                window.location.href = "checkout.html";
+            }
+        });
+    </script>
+
+</body>
+
+</html>
