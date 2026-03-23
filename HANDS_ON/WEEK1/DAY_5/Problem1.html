@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Greeting Generator</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+       display: flex;
+       flex-direction: column;
+       justify-content: center;
+       align-items: center; 
+       height: 100vh;
+
+    }
+    label {
+      display: block;
+      margin-bottom: 5px;
+    }
+    input {
+      padding: 8px;
+      width: 200px;
+      margin-bottom: 10px;
+    }
+    button {
+      padding: 8px 12px;
+    }
+    #greeting {
+      margin-top: 20px;
+      font-size: 1.2em;
+      color: #333;
+    }           
+  </style>
+</head>
+<body>
+  <h1>Greeting Generator</h1>
+  <label for="nameInput">Enter your name:</label>
+  <input id="nameInput" type="text" placeholder="Rahul"><br>
+  <button id="generateBtn">Generate Greeting</button>
+
+  <p id="greeting"></p>
+
+  <script>
+    // Function receives the name as a parameter (uses function keyword)
+    function generateGreeting(name) {
+      var message = "Hello, " + name + "! Welcome to our website."; // local variable inside function
+      document.getElementById('greeting').textContent = message; // DOM update via getElementById
+    }
+
+    // Attach click handler that reads the input value and passes it to the function
+    document.getElementById('generateBtn').addEventListener('click',function(){
+        var name = document.getElementById('nameInput').value; // get input value
+        generateGreeting(name); // call the function with the input value
+    })
+  </script>
+</body>
+</html>

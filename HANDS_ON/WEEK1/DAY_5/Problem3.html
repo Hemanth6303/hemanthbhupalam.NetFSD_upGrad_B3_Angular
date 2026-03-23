@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Counter App with Scope Control</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .counter-box {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+    }
+
+    button {
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+    #counter {
+      font-size: 24px;
+      font-weight: bold;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <h1>Counter App</h1>
+
+  <div class="counter-box">
+    <button id="incrementBtn">Increment</button>
+    <button id="resetBtn">Reset</button>
+    <span id="counter">0</span>
+  </div>
+
+  <script>
+    // Global scope variable to maintain counter value
+    let counterValue = 0;
+
+    function updateCounterDisplay() {
+      let counterElement = document.getElementById("counter");
+      counterElement.textContent = counterValue;
+    }
+
+    function incrementCounter(step) {
+      counterValue = counterValue + step;
+      updateCounterDisplay();
+    }
+
+    function resetCounter() {
+      counterValue = 0;
+      updateCounterDisplay();
+    }
+
+    function initializeCounterApp() {
+      const incrementButton = document.getElementById("incrementBtn");
+      const resetButton = document.getElementById("resetBtn");
+
+      incrementButton.addEventListener("click", function () {
+        incrementCounter(1);
+      });
+
+      resetButton.addEventListener("click", function () {
+        resetCounter();
+      });
+
+      updateCounterDisplay();
+    }
+
+    initializeCounterApp();
+  </script>
+</body>
+</html>

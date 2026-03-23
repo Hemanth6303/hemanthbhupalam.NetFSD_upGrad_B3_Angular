@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dynamic Student Profile Manager</title>
+  <style>
+   
+    body {
+      font-family: Arial, sans-serif;
+      padding: 20px;
+    }
+
+    .layout {
+      max-width: 400px;
+      margin: auto;
+    }
+
+    .profile-row {
+      margin-bottom: 8px;
+    }
+
+    label {
+      display: block;
+      margin-top: 12px;
+      margin-bottom: 4px;
+    }
+
+    input[type="number"] {
+      width: 100%;
+      padding: 8px;
+      box-sizing: border-box;
+    }
+
+    button {
+      margin-top: 8px;
+      padding: 8px 14px;
+      font-size: 16px;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+  <div class="layout">
+    <h1>Student Profile Manager</h1>
+
+    <div id="profileContainer"></div>
+
+    <label for="marksInput">Enter New Marks</label>
+    <input type="number" id="marksInput" placeholder="Type marks and click update">
+    <button id="updateMarksBtn">Update Marks</button>
+  </div>
+
+  <script>
+    // Global student object shared across functions
+    const student = {
+      name: "Hemanth",
+      rollNo: "B3-102",
+      marks: 78
+    };
+
+    function updateStudentProfile(studentObj) {
+      let profileContainer = document.getElementById("profileContainer");
+
+      profileContainer.innerHTML =
+        '<div class="profile-row"><strong>Name:</strong> ' + studentObj.name + '</div>' +
+        '<div class="profile-row"><strong>Roll No:</strong> ' + studentObj.rollNo + '</div>' +
+        '<div class="profile-row"><strong>Marks:</strong> ' + studentObj.marks + '</div>';
+    }
+
+    function updateMarks(newMarks) {
+      student.marks = newMarks;
+      updateStudentProfile(student);
+    }
+
+    function initializeProfileManager() {
+      let marksInput = document.getElementById("marksInput");
+      let updateButton = document.getElementById("updateMarksBtn");
+
+      updateButton.addEventListener("click", function () {
+        let parsedMarks = Number(marksInput.value);
+
+        if (Number.isNaN(parsedMarks)) {
+          return;
+        }
+
+        updateMarks(parsedMarks);
+        marksInput.value = "";
+      });
+
+      updateStudentProfile(student);
+      // Initial display of student profile
+    }
+
+    initializeProfileManager();
+  </script>
+</body>
+</html>
