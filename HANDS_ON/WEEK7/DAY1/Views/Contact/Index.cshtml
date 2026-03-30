@@ -1,0 +1,79 @@
+﻿@model List<ContactInfo>
+
+
+<div class="container mt-4">
+
+    <h2 class="text-center mb-4 text-primary">Contact List</h2>
+
+    <!-- 🔍 Search Section -->
+    <div class="card p-3 mb-4 shadow-sm">
+        <form method="get" action="/Contact/GetContactById" class="row g-2">
+            
+            <div class="col-md-8">
+                <input type="number" name="id" class="form-control" placeholder="Enter Contact ID" required />
+            </div>
+
+            <div class="col-md-4">
+                <button type="submit" class="btn btn-success w-100">Search</button>
+            </div>
+
+        </form>
+    </div>
+
+    <!-- ➕ Add Contact Button -->
+    <div class="mb-3 text-end">
+        <a href="/Contact/AddContact" class="btn btn-primary">
+            ➕ Add New Contact
+        </a>
+    </div>
+
+    <!-- 📊 Contact Table -->
+    <div class="table-responsive shadow-sm">
+        <table class="table table-bordered table-hover table-striped align-middle">
+
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>ID</th>
+                    <th>First Name</th>
+                    <th>Last Name</th>
+                    <th>Company</th>
+                    <th>Email</th>
+                    <th>Mobile</th>
+                    <th>Designation</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @if (Model != null && Model.Count > 0)
+                {
+                    foreach (var c in Model)
+                    {
+                        <tr>
+                            <td>@c.ContactId</td>
+                            <td>@c.FirstName</td>
+                            <td>@c.LastName</td>
+                            <td>@c.CompanyName</td>
+                            <td>@c.EmailId</td>
+                            <td>@c.MobileNo</td>
+                            <td>
+                                <span class="badge bg-info text-dark">
+                                    @c.Designation
+                                </span>
+                            </td>
+                        </tr>
+                    }
+                }
+                else
+                {
+                    <tr>
+                        <td colspan="7" class="text-center text-danger fw-bold">
+                            No Contacts Available
+                        </td>
+                    </tr>
+                }
+            </tbody>
+
+        </table>
+    </div>
+
+</div>

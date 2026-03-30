@@ -1,0 +1,46 @@
+﻿@model WebApplication1.Models.Product
+
+<h2>Create Employee</h2>
+<hr />
+
+
+<form method="post" asp-action="Create" asp-controller="Product">
+
+    <div class="form-group">
+        <label asp-for="Id" class="form-label"></label>
+        <input asp-for="Id" class="form-control" />
+        <span asp-validation-for="Id" class="text-danger"></span>
+    </div>
+
+    <div class="form-group">
+        <label asp-for="Name" class="form-label"></label>
+        <input asp-for="Name" class="form-control" />
+        <span asp-validation-for="Name" class="text-danger"></span>
+
+    </div>
+ 
+    <div class="form-group">
+        <label asp-for="Price"></label>
+        <input asp-for="Price" class="form-control" />
+        <span asp-validation-for="Price" class="text-danger"></span>
+
+    </div>
+    <div class="form-group">
+        <label asp-for="Category"></label>
+        <input asp-for="Category" class="form-control" />
+        <span asp-validation-for="Category" class="text-danger"></span>
+
+    </div>
+   
+
+    <button type="submit" class="btn btn-success">Create</button>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+    
+</form>
+
+<p class="text-danger">@ViewBag.ErrorMessage</p>
+
+@section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}
+ 
