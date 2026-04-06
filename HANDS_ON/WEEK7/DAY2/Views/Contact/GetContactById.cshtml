@@ -1,0 +1,68 @@
+﻿@model ContactInfo
+
+
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+
+        <h2 class="text-center text-primary mb-4">Contact Details</h2>
+
+        @if (Model != null)
+        {
+            <div class="row g-3">
+
+                <div class="col-md-6">
+                    <strong>ID:</strong>
+                    <span class="ms-2">@Model.ContactId</span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Name:</strong>
+                    <span class="ms-2">@Model.FirstName @Model.LastName</span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Company:</strong>
+                    <span class="ms-2">@Model.CompanyName</span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Email:</strong>
+                    <span class="ms-2 text-primary">@Model.EmailId</span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Mobile:</strong>
+                    <span class="ms-2">@Model.MobileNo</span>
+                </div>
+
+                <div class="col-md-6">
+                    <strong>Designation:</strong>
+                    <span class="badge bg-info text-dark ms-2">
+                        @Model.Designation
+                    </span>
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="mt-4 d-flex justify-content-between">
+                <a href="/Contact/Index" class="btn btn-secondary">⬅ Back</a>
+                <a href="/Contact/AddContact" class="btn btn-success">➕ Add New</a>
+            </div>
+        }
+        else
+        {
+            <div class="alert alert-danger text-center">
+                ❌ Contact not found
+            </div>
+
+            <div class="text-center mt-3">
+                <a href="/Contact/Index" class="btn btn-primary">Back to List</a>
+            </div>
+        }
+
+    </div>
+
+</div>

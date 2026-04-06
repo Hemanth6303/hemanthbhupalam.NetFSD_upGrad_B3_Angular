@@ -1,0 +1,67 @@
+﻿@model ContactInfo
+
+
+
+<div class="container mt-5">
+
+    <div class="card shadow p-4">
+        <h2 class="text-center text-primary mb-4">Add Contact</h2>
+
+        <form method="post">
+
+            <div class="row">
+
+                <!-- Contact ID -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Contact ID</label>
+                    <input asp-for="ContactId" class="form-control" placeholder="Enter ID" />
+                </div>
+
+                <!-- First Name -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">First Name</label>
+                    <input asp-for="FirstName" class="form-control" placeholder="Enter First Name" />
+                </div>
+
+                <!-- Last Name -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Last Name</label>
+                    <input asp-for="LastName" class="form-control" placeholder="Enter Last Name" />
+                </div>
+
+                <!-- Company -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Company Name</label>
+                    <input asp-for="CompanyName" class="form-control" placeholder="Enter Company" />
+                </div>
+
+                <!-- Email -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Email</label>
+                    <input asp-for="EmailId" class="form-control" type="email" placeholder="Enter Email" />
+                </div>
+
+                <!-- Mobile -->
+                <div class="col-md-6 mb-3">
+                    <label class="form-label">Mobile</label>
+                    <input asp-for="MobileNo" class="form-control" placeholder="Enter Mobile Number" />
+                </div>
+
+                <!-- Designation -->
+                <div class="col-md-12 mb-3">
+                    <label class="form-label">Designation</label>
+                    <input asp-for="Designation" class="form-control" placeholder="Enter Designation" />
+                </div>
+
+            </div>
+
+            <!-- Buttons -->
+            <div class="d-flex justify-content-between mt-3">
+                <a href="/Contact/Index" class="btn btn-secondary">⬅ Back</a>
+                <button type="submit" class="btn btn-success">💾 Save Contact</button>
+            </div>
+
+        </form>
+    </div>
+
+</div>

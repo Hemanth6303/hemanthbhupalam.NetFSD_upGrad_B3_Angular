@@ -1,0 +1,29 @@
+﻿@model List<WebApplication1.Models.Product>
+
+
+
+
+
+<table class="table table-bordered table-hover" id="productTable">
+    <thead class="table-dark">
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Category</th>
+           
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var product in Model)
+        {
+            <tr onclick="rowClick(this)">
+                <td>@product.Id</td>
+                <td class="pname">@product.Name</td>
+                <td>@product.Price</td>
+                <td>@product.Category</td>
+               
+            </tr>
+        }
+    </tbody>
+</table>
