@@ -1,0 +1,28 @@
+﻿@model List<EmployeeApp.Models.Student>
+
+<h2>Students</h2>
+
+<a asp-action="Create" asp-controller="Students" class="btn btn-primary">Add Student</a>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Name</th>
+            <th>Course</th>
+        </tr>
+    </thead>
+
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.StudentId</td>
+                <td>@item.StudentName</td>
+                <td>
+                    @(item.Course != null ? item.Course.CourseName : "No Course")
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

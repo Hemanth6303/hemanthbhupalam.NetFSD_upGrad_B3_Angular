@@ -1,0 +1,39 @@
+﻿@model EmployeeApp.Models.Student
+
+<h2>Add Student</h2>
+
+<form asp-action="Create" method="post">
+
+    <!-- ✅ Validation Summary -->
+    <div asp-validation-summary="All" class="text-danger"></div>
+
+    <!-- ✅ Student Name -->
+    <div class="form-group">
+        <label asp-for="StudentName"></label>
+        <input asp-for="StudentName" class="form-control" />
+        <span asp-validation-for="StudentName" class="text-danger"></span>
+    </div>
+
+    <!-- ✅ Course Dropdown (FIXED) -->
+    <div class="form-group">
+        <label asp-for="CourseId"></label>
+        <select name="CourseId" class="form-control">
+            <option value="1">cse</option>
+            <option value="2">ece</option>
+        </select>
+        <!--<select asp-for="CourseId" asp-items="ViewBag.Courses" class="form-control">
+            <option value="">-- Select Course --</option>
+        </select>-->
+
+        <span asp-validation-for="CourseId" class="text-danger"></span>
+    </div>
+
+    <br />
+
+    <button type="submit" class="btn btn-success">Save</button>
+
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

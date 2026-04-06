@@ -1,0 +1,36 @@
+﻿@model List<Course>
+
+<h2>Courses</h2>
+
+<a asp-action="Create" asp-controller="Courses" btn btn-primary">Add Course</a>
+
+<table class="table">
+    <tr>
+        <th>Id</th>
+        <th>Name</th>
+        <th>students</th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.CourseId</td>
+            <td>@item.CourseName</td>
+            <td>
+                @if (item.Students.Any())
+                {
+                    <ul>
+                        @foreach (var student in item.Students)
+                        {
+                            <li>@student.StudentName</li>
+                        }
+                    </ul>
+                }
+                else
+                {
+                    <span class="badge bg-secondary">No students</span>
+                }
+            </td>
+        </tr>
+    }
+</table>
