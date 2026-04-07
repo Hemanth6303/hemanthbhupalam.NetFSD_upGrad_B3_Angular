@@ -1,0 +1,50 @@
+﻿@model ContactManagementSystem.Models.ContactInfo
+
+<h2>Edit Contact</h2>
+
+<form method="post" asp-action="edit">
+
+    <input type="hidden" asp-for="ContactId" />
+
+    <div>
+        <label>First Name</label>
+        <input asp-for="FirstName" />
+    </div>
+
+    <div>
+        <label>Last Name</label>
+        <input asp-for="LastName" />
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="EmailId" />
+    </div>
+
+    <div>
+        <label>Mobile</label>
+        <input asp-for="MobileNo" />
+    </div>
+
+    <div>
+        <label>Designation</label>
+        <input asp-for="Designation" />
+    </div>
+
+    <div>
+        <label>Company</label>
+        <select asp-for="CompanyId" asp-items="ViewBag.Companies">
+            <option value="">-- Select Company --</option>
+        </select>
+    </div>
+
+    <div>
+        <label>Department</label>
+        <select asp-for="DepartmentId" asp-items="ViewBag.Departments">
+            <option value="">-- Select Department --</option>
+        </select>
+    </div>
+
+    <button type="submit">Update</button>
+
+</form>
