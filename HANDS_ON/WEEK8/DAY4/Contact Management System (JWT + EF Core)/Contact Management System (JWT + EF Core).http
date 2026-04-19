@@ -1,0 +1,6 @@
+@Contact_Management_System__JWT___EF_Core__HostAddress = http://localhost:5241
+
+GET {{Contact_Management_System__JWT___EF_Core__HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
