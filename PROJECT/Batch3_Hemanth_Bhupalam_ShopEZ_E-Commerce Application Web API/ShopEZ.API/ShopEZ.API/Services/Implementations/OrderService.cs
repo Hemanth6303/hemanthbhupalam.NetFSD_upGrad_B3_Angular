@@ -85,7 +85,7 @@ namespace ShopEZ.API.Services.Implementations
                     if (product == null)
                         throw new Exception($"Product with ID {item.ProductId} not found.");
 
-                    // ✅ Stock validation
+                    //  Stock validation
                     if (product.Stock < item.Quantity)
                         throw new Exception($"Insufficient stock for {product.Name}");
 
@@ -116,10 +116,10 @@ namespace ShopEZ.API.Services.Implementations
 
                 var createdOrder = await _orderRepo.CreateAsync(order);
 
-                // ✅ Save all changes (IMPORTANT)
+                //  Save all changes (IMPORTANT)
                 await _context.SaveChangesAsync();
 
-                // ✅ Commit transaction
+                // Commit transaction
                 await transaction.CommitAsync();
 
                 return await GetByIdAsync(createdOrder.OrderId);

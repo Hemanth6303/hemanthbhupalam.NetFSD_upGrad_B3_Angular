@@ -84,7 +84,7 @@ namespace ShopEZ.API
             builder.Services.AddSwaggerGen();
 
 
-            // 🚀 Build App
+            //  Build App
 
 
             var app = builder.Build();
@@ -93,7 +93,7 @@ namespace ShopEZ.API
             // Middleware Pipeline
 
 
-            // Global Exception Middleware (FIRST)
+            // Global Exception Middleware
             app.UseMiddleware<ExceptionMiddleware>();
 
             if (app.Environment.IsDevelopment())
