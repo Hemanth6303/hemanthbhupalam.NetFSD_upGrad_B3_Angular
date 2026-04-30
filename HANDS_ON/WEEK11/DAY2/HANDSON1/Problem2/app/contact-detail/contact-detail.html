@@ -1,0 +1,11 @@
+<h2>Contact Details</h2>
+
+<div *ngIf="contact; else notFound">
+  <p><b>Name:</b> {{contact.name}}</p>
+  <p><b>Email:</b> {{contact.email}}</p>
+  <p><b>Phone:</b> {{contact.phone}}</p>
+</div>
+
+<ng-template #notFound>
+  <p>Contact not found</p>
+</ng-template>

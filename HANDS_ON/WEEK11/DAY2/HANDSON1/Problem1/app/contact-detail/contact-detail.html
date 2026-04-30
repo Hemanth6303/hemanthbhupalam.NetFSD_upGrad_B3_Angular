@@ -1,0 +1,26 @@
+<h2>Search Contact</h2>
+
+<input 
+  type="text" 
+  [(ngModel)]="searchName" 
+  placeholder="Enter name"
+/>
+
+<button (click)="searchByName()">Search</button>
+
+<hr>
+
+<div *ngIf="hasSearched">
+
+  <div *ngIf="contact; else notFound">
+    <p>ID: {{contact?.id}}</p>
+    <p>Name: {{contact?.name}}</p>
+    <p>Email: {{contact?.email}}</p>
+    <p>Phone: {{contact?.phone}}</p>
+  </div>
+
+  <ng-template #notFound>
+    <p>No contact found</p>
+  </ng-template>
+
+</div>

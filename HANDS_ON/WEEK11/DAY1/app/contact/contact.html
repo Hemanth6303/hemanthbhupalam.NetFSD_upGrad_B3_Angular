@@ -1,0 +1,53 @@
+<h2>Contact Management</h2>
+
+<!-- ✅ Two-way binding -->
+<input 
+  type="text" 
+  [(ngModel)]="searchText"  name="searchText"
+  placeholder="Search by name or email"
+/>
+
+<br><br>
+
+<table border="1" cellpadding="10">
+  <tr>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Phone</th>
+    <th>Status</th>
+    <th>Action</th>
+  </tr>
+  
+  <!-- ✅ Using method (fixes all issues) -->
+  <tr *ngFor="let contact of getFilteredContacts()">
+
+    <!-- Interpolation + built-in pipes -->
+    <td>{{ contact.name | titlecase }}</td>
+    <td>{{ contact.email | lowercase }}</td>
+
+    <!-- Custom pipe -->
+    <td>{{ contact.phone | phoneFormatter }}</td>
+
+    <!-- Property binding -->
+    <td>
+      <span [style.color]="contact.status ? 'green' : 'red'">
+        {{ contact.status | status }}
+      </span>
+    </td>
+
+    <!-- Event binding -->
+    <td>
+      <button (click)="toggleStatus(contact)">
+        Toggle
+      </button>
+    </td>
+
+  </tr>
+</table>
+
+<br>
+
+<!-- Show More / Less -->
+<button (click)="toggleShow()">
+  {{ showAll ? 'Show Less' : 'Show More' }}
+</button>
