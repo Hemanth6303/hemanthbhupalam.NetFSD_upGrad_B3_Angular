@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Services/">
+    <Project Path="Services/AuthService/AuthService.csproj" />
+    <Project Path="Services/OrderService/OrderService.csproj" />
+    <Project Path="Services/ProductService/ProductService.csproj" />
+  </Folder>
+  <Folder Name="/Solution Items/">
+    <File Path="docker-compose.yml" />
+  </Folder>
+  <Folder Name="/Tests/">
+    <Project Path="Tests/AuthService.Tests/AuthService.Tests.csproj" />
+    <Project Path="Tests/OrderService.Tests/OrderService.Tests.csproj" />
+    <Project Path="Tests/ProductService.Tests/ProductService.Tests.csproj" />
+  </Folder>
+  <Project Path="ApiGateway/ApiGateway.csproj" />
+</Solution>
